@@ -14,4 +14,4 @@ function App() {
 
 export default App;
 //Directed By: George WENG
-//My Team Members: Junhee Cho & Lucas Yuu
+//My Team Member: Junhee Cho
