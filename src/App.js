@@ -36,7 +36,6 @@ function App() {
 
       </Routes>
       
-      <h1>Hello There!</h1>
       <p>This will be a cook book web app</p>
       <p>Due date: Nov.28</p>
 
