@@ -8,7 +8,7 @@ import About from './components/about';
 import Contact from './components/contact';
 import Whoops404 from './components/whoops404';
 
-function log(s){console.log(s)};
+//function log(s){console.log(s)};
 
 function App() {
   return (
