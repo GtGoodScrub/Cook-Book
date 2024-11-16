@@ -6,7 +6,7 @@ const About = () => {
         <p>Hello There!  My name is George.  Something something backstory...</p>
 
         <h2>About Junhee</h2>
-        <img alt="Junhee's Pic"/>
+        <img src={require("../images/JH.jpg")} height={200} width={200} alt="JH Pic"/>
         <p>Hi! I'm Junhee.  ...</p>
     </div>  );
 }
