@@ -3,12 +3,15 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@brandonrjguth/recipe-scraper": "^2.1.1",
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "axios": "^1.7.7",
     "bootstrap": "^5.3.3",
+    "cheerio": "^1.0.0",
     "create-react-app": "^5.0.1",
+    "express": "^4.21.1",
     "nodemon": "^3.1.7",
     "query-string": "^9.1.1",
     "react": "^18.3.1",
@@ -45,7 +48,7 @@
     ]
   },
   "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
-  "main": "index.js",
+  "main": "server.js",
   "author": "",
   "license": "ISC"
 }
