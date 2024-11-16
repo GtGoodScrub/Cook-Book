@@ -19,7 +19,7 @@ export const Home = () => {
         <p>This will be a cook book web app</p>
         <p>Due date: Nov.28</p>
         
-        <div style={{ maxWidth: "800px", margin: "0 auto", padding: "20px" }}>
+        {/* <div style={{ maxWidth: "800px", margin: "0 auto", padding: "20px" }}>
 
         <h2>Recipe List</h2>
         <div>
@@ -101,7 +101,7 @@ export const Home = () => {
                 </p>
             </div>
             )}
-        </div>
+        </div> */}
     </div>);
 }
 
