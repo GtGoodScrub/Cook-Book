@@ -1,3 +1,32 @@
-{
-    
-}
+[
+    {
+        "id": "01",
+        "name": "Mashed Potatoes",
+        "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium ut nisi excepturi! Perferendis, accusantium. Explicabo ducimus numquam, corporis in incidunt sit dolores nemo suscipit fugit veritatis quis earum, non asperiores.",
+        "imageUrl": "mashed_potatoes.webp"
+    }, 
+    {
+        "id": "02",
+        "name": "Fluffy Pancakes",
+        "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium ut nisi excepturi! Perferendis, accusantium. Explicabo ducimus numquam, corporis in incidunt sit dolores nemo suscipit fugit veritatis quis earum, non asperiores.",
+        "imageUrl": "test.jpg"
+    }, 
+    {
+        "id": "03",
+        "name": "",
+        "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium ut nisi excepturi! Perferendis, accusantium. Explicabo ducimus numquam, corporis in incidunt sit dolores nemo suscipit fugit veritatis quis earum, non asperiores.",
+        "imageUrl": "test.jpg"
+    }, 
+    {
+        "id": "04",
+        "name": "Apple Pie",
+        "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium ut nisi excepturi! Perferendis, accusantium. Explicabo ducimus numquam, corporis in incidunt sit dolores nemo suscipit fugit veritatis quis earum, non asperiores.",
+        "imageUrl": "test.jpg"
+    }, 
+    {
+        "id": "05",
+        "name": "Cranberry Sauce",
+        "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium ut nisi excepturi! Perferendis, accusantium. Explicabo ducimus numquam, corporis in incidunt sit dolores nemo suscipit fugit veritatis quis earum, non asperiores.",
+        "imageUrl": "test.jpg"
+    } 
+]
