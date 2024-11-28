@@ -1,7 +1,17 @@
 import React from 'react';
 
 const Recipe = ({recipe}) => {
-    // return ( <div>
+    return (<div>
+            <a href='http://localhost:3000/detail'>
+                <img src={require("../images/" + recipe.imageUrl)} alt="Da Recipe" height={200} width={200}/>
+                <h3>{recipe.name}</h3>
+            </a>
+    </div>);
+}
+ 
+export default Recipe;
+
+// return ( <div>
     //     <h3>Mashed Potatoes</h3><br/>
     //     <img src={require('../images/mashed_potatoes.webp')} 
     //     height={300} width={350} alt='mashed potatoes'/><br/><br/>
@@ -30,12 +40,4 @@ const Recipe = ({recipe}) => {
     //         <li>Season with salt and pepper. Serve and enjoy!</li>
     //     </ol>
     // </div> );
-    return (<div>
-        <img src={require("../images/" + recipe.imageUrl)} alt="Da Recipe" height={200} width={200}>
-            {/* <a href='' onclick={console.log(`recipe #${recipe.id} clicked!`)}/> */}
-        </img>
-        <h3>{recipe.name}</h3>
-    </div>);
-}
- 
-export default Recipe;
+    
