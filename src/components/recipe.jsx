@@ -3,9 +3,9 @@ import React from 'react';
 const Recipe = ({ recipe }) => {
   return (
     <div className="recipe-card">
+      <img src={recipe.image} alt={recipe.title} className="recipe-image" />
       <h3>{recipe.title}</h3>
-      <img src={recipe.image} alt={recipe.title} width={150} />
-      <p>Ready in {recipe.readyInMinutes} minutes</p>
+      <p>Ready in: {recipe.readyInMinutes} mins</p>
       <p>Servings: {recipe.servings}</p>
     </div>
   );
