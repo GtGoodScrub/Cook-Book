@@ -6,8 +6,8 @@ import React, { useState, useEffect } from "react";
 import "./App.css";
 
 import Home from './components/home';
-import Recipe from './components/recipe';
-//import Detail from './components/detail';
+import allRecipes from './services/recipe-data.json';
+import Detail from './components/detail';
 import About from './components/about';
 import Contact from './components/contact';
 import Whoops404 from './components/whoops404';
@@ -15,13 +15,15 @@ import Whoops404 from './components/whoops404';
 //function log(s){console.log(s)};
 
 function App() {
+  //state
+  const [recipes] = useState(allRecipes);
   return (
     <div className="App">
       <NavBar/>
 
       <Routes>
-        <Route path="/" element={<Home/>}/>
-        <Route path="/detail" element={<Recipe/>}/>
+        <Route path="/" element={<Home recipes={recipes}/>}/>
+        <Route path="/detail" element={<Detail/>}/>
         <Route path="/about" element={<About/>}/>
         <Route path="/contact" element={<Contact/>}/>
         {/* Redirecting */}
