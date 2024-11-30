@@ -9,24 +9,54 @@
         "id": "02",
         "name": "Fluffy Pancakes",
         "instructions": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium ut nisi excepturi! Perferendis, accusantium. Explicabo ducimus numquam, corporis in incidunt sit dolores nemo suscipit fugit veritatis quis earum, non asperiores.",
-        "imageUrl": "test.jpg"
+        "imageUrl": "fluffy_pancakes.jpg"
     }, 
     {
         "id": "03",
         "name": "Cheese Cake",
         "instructions": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium ut nisi excepturi! Perferendis, accusantium. Explicabo ducimus numquam, corporis in incidunt sit dolores nemo suscipit fugit veritatis quis earum, non asperiores.",
-        "imageUrl": "test.jpg"
+        "imageUrl": "cheese_cake.jpg"
     }, 
     {
         "id": "04",
         "name": "Apple Pie",
         "instructions": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium ut nisi excepturi! Perferendis, accusantium. Explicabo ducimus numquam, corporis in incidunt sit dolores nemo suscipit fugit veritatis quis earum, non asperiores.",
-        "imageUrl": "test.jpg"
+        "imageUrl": "apple_pie.jpg"
     }, 
     {
         "id": "05",
         "name": "Cranberry Sauce",
         "instructions": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium ut nisi excepturi! Perferendis, accusantium. Explicabo ducimus numquam, corporis in incidunt sit dolores nemo suscipit fugit veritatis quis earum, non asperiores.",
-        "imageUrl": "test.jpg"
-    } 
+        "imageUrl": "cranberry_sauce.jpg"
+    },
+    {
+        "id": "06",
+        "name": "Blueberry Muffins",
+        "instructions": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium ut nisi excepturi! Perferendis, accusantium. Explicabo ducimus numquam, corporis in incidunt sit dolores nemo suscipit fugit veritatis quis earum, non asperiores.",
+        "imageUrl": "blueberry_muffins.webp"
+    }, 
+    {
+        "id": "07",
+        "name": "Butter Cookies",
+        "instructions": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium ut nisi excepturi! Perferendis, accusantium. Explicabo ducimus numquam, corporis in incidunt sit dolores nemo suscipit fugit veritatis quis earum, non asperiores.",
+        "imageUrl": "butter_cookies.jpg"
+    }, 
+    {
+        "id": "08",
+        "name": "Cinnamon Rolls",
+        "instructions": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium ut nisi excepturi! Perferendis, accusantium. Explicabo ducimus numquam, corporis in incidunt sit dolores nemo suscipit fugit veritatis quis earum, non asperiores.",
+        "imageUrl": "cinnamon_rolls.jpg"
+    }, 
+    {
+        "id": "09",
+        "name": "Focaccia Bread",
+        "instructions": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium ut nisi excepturi! Perferendis, accusantium. Explicabo ducimus numquam, corporis in incidunt sit dolores nemo suscipit fugit veritatis quis earum, non asperiores.",
+        "imageUrl": "focaccia_bread.jpg"
+    }, 
+    {
+        "id": "10",
+        "name": "Chocolate Cupcakes",
+        "instructions": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium ut nisi excepturi! Perferendis, accusantium. Explicabo ducimus numquam, corporis in incidunt sit dolores nemo suscipit fugit veritatis quis earum, non asperiores.",
+        "imageUrl": "chocolate_cupcakes.webp"
+    }
 ]
