@@ -22,7 +22,7 @@ const Home = ({ recipes }) => {
     gaps: false,
   });
 
-  const apiKey = "929b7c33f54545c99d197907a3e70af1";
+  const apiKey = "85874eedcd694c1fbf2bd9297e48b0b2";
   const navigate = useNavigate();
 
   useEffect(() => {

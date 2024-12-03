@@ -16,7 +16,7 @@ function App() {
   const fetchRecipes = async () => {
     try {
       const response = await fetch(
-        "https://api.spoonacular.com/recipes/random?apiKey=929b7c33f54545c99d197907a3e70af1&number=50"
+        "https://api.spoonacular.com/recipes/random?apiKey=85874eedcd694c1fbf2bd9297e48b0b2&number=50"
       );
   
       if (!response.ok) throw new Error("Failed to fetch recipes");
