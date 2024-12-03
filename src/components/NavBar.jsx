@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import '../styles/NavBar.css';
 
 const NavBar = () => {
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -10,15 +11,36 @@ const NavBar = () => {
 
     return (
         <nav className="navbar navbar-expand-lg navbar-light bg-light">
-            <Link className="navbar-brand" to="/">Cook Book</Link>
-            <button className="navbar-toggler" onClick={toggleDropdown} type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded={isDropdownOpen} aria-label="Toggle navigation">
+            <Link className="navbar-logo" to="/">
+                <img
+                    src={require("../images/CookBookLogo.png")}
+                    height={150}
+                    width={200}
+                    alt="CookBook Logo"
+                />
+            </Link>
+            <button
+                className="navbar-toggler"
+                onClick={toggleDropdown}
+                type="button"
+                data-toggle="collapse"
+                data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent"
+                aria-expanded={isDropdownOpen}
+                aria-label="Toggle navigation"
+            >
                 <span className="navbar-toggler-icon"></span>
             </button>
 
-            <div className={`collapse navbar-collapse ${isDropdownOpen ? 'show' : ''}`} id="navbarSupportedContent">
-                <ul className="navbar-nav mr-auto">
+            <div
+                className={`collapse navbar-collapse ${isDropdownOpen ? 'show' : ''}`}
+                id="navbarSupportedContent"
+            >
+                <ul className="navbar-nav mr-auto" role="menu">
                     <li className="nav-item active">
-                        <Link className="nav-link" to="/">Home <span className="sr-only"></span></Link>
+                        <Link className="nav-link" to="/">
+                            Home <span className="sr-only"></span>
+                        </Link>
                     </li>
                     <li className="nav-item">
                         <Link className="nav-link" to="/about">About</Link>
@@ -33,6 +55,7 @@ const NavBar = () => {
 };
 
 export default NavBar;
+
 
 /* 
 <nav class="navbar navbar-inverse">
