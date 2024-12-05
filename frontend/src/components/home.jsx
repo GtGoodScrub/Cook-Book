@@ -21,10 +21,9 @@ const Home = ({ recipes }) => {
           onChange={(e) => setSearchTerm(e.target.value)}
         />
       </div>
-      <h1 className="recipe-list-title">Recipe List</h1>
 
       <div className="recipe-list">
-       
+        <h1>Recipe List</h1>
         <div className="recipe-grid">
           {filteredRecipes.map((recipe) => (
             <div
