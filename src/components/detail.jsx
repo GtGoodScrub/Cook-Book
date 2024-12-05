@@ -58,17 +58,19 @@ const Detail = ({ recipes }) => {
   const {
     title = "Unknown Recipe",
     image = "",
-    price = 0,
     rating = 0,
-    ingredients = [],
-    instructions = [],
+    ingredients = "",
+    instructions = "",
   } = recipe;
+
+  // Split ingredients and instructions by commas
+  const ingredientList = ingredients ? ingredients.split(",") : [];
+  const instructionList = instructions ? instructions.split(".") : [];
 
   return (
     <div className="detail-container">
       <h1>{title}</h1>
       <img src={image} alt={title} className="detail-image" />
-      <p>Price: ${price.toFixed(2)}</p>
       <p>Rating: {rating} / 5</p>
 
       <button className="like-button" onClick={toggleLike}>
@@ -77,9 +79,9 @@ const Detail = ({ recipes }) => {
 
       <h2>Ingredients:</h2>
       <ul>
-        {Array.isArray(ingredients) && ingredients.length > 0 ? (
-          ingredients.map((ingredient, index) => (
-            <li key={index}>{ingredient}</li>
+        {ingredientList.length > 0 ? (
+          ingredientList.map((ingredient, index) => (
+            <li key={index}>{ingredient.trim()}</li>
           ))
         ) : (
           <p>No ingredients available.</p>
@@ -88,9 +90,9 @@ const Detail = ({ recipes }) => {
 
       <h2>Instructions:</h2>
       <ol>
-        {Array.isArray(instructions) && instructions.length > 0 ? (
-          instructions.map((instruction, index) => (
-            <li key={index}>{instruction}</li>
+        {instructionList.length > 0 ? (
+          instructionList.map((instruction, index) => (
+            <li key={index}>{instruction.trim()}</li>
           ))
         ) : (
           <p>No instructions available.</p>

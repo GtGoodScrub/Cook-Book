@@ -31,9 +31,7 @@ const AddRecipe = ({ setRecipes }) => {
 
       if (response.ok) {
         const data = await response.json();
-        // Update the state in App.js with the new recipe
         setRecipes((prevRecipes) => [...prevRecipes, data.savedRecipe]);
-        // Redirect to home page after adding the recipe
         navigate("/");
       } else {
         console.error("Error adding recipe");
@@ -53,6 +51,7 @@ const AddRecipe = ({ setRecipes }) => {
             type="text"
             value={title}
             onChange={(e) => setTitle(e.target.value)}
+            placeholder="Enter the title of the recipe"
             required
           />
         </div>
@@ -62,6 +61,7 @@ const AddRecipe = ({ setRecipes }) => {
             type="text"
             value={image}
             onChange={(e) => setImage(e.target.value)}
+            placeholder="Enter image URL (e.g., https://example.com/image.jpg)"
             required
           />
         </div>
@@ -70,6 +70,7 @@ const AddRecipe = ({ setRecipes }) => {
           <textarea
             value={ingredients}
             onChange={(e) => setIngredients(e.target.value)}
+            placeholder="List the ingredients (separate with commas)"
             required
           />
         </div>
@@ -78,6 +79,7 @@ const AddRecipe = ({ setRecipes }) => {
           <textarea
             value={instructions}
             onChange={(e) => setInstructions(e.target.value)}
+            placeholder="Enter step-by-step cooking instructions"
             required
           />
         </div>
@@ -89,6 +91,7 @@ const AddRecipe = ({ setRecipes }) => {
             onChange={(e) => setRating(e.target.value)}
             min="1"
             max="5"
+            placeholder="Rate the recipe from 1 to 5"
             required
           />
         </div>
