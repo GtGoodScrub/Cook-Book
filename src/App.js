@@ -7,6 +7,7 @@ import About from "./components/about";
 import Contact from "./components/contact";
 import Whoops404 from "./components/whoops404";
 import Footer from "./components/footer";
+import AddRecipe from "./components/addRecipe"; // Import AddRecipe
 import "./App.css";
 
 function App() {
@@ -23,30 +24,36 @@ function App() {
         console.error(`Error fetching recipes: ${err.message}`);
       }
     };
-
-    const fetchRecipeById = async (id) => {
-      try {
-        const response = await fetch(`http://localhost:5000/recipes/${id}`);
-        if (!response.ok) {
-          throw new Error(`Failed to fetch recipe with ID: ${id}`);
-        }
-        const data = await response.json();
-        return data;
-      } catch (error) {
-        console.error(error.message);
-        throw error;
-      }
-    };
     fetchData();
-    fetchRecipeById();
   }, []);
+
+  // Function to delete recipe
+  const deleteRecipe = async (recipeId) => {
+    try {
+      const response = await fetch(`http://localhost:5000/api/recipes/${recipeId}`, {
+        method: "DELETE",
+      });
+
+      if (response.ok) {
+        setRecipes((prevRecipes) => prevRecipes.filter((recipe) => recipe._id !== recipeId));
+      } else {
+        console.error("Failed to delete recipe");
+      }
+    } catch (err) {
+      console.error("Error deleting recipe:", err);
+    }
+  };
 
   return (
     <div className="App">
       <NavBar />
       <Routes>
-        <Route path="/" element={<Home recipes={recipes} />} />
-        <Route path="/detail" element={<Detail />} />
+        <Route path="/" element={<Home recipes={recipes} deleteRecipe={deleteRecipe} />} />
+        <Route
+          path="/detail/:id"
+          element={<Detail recipes={recipes} setRecipes={setRecipes} />} // Pass setRecipes to Detail
+        />
+        <Route path="/add-recipe" element={<AddRecipe setRecipes={setRecipes} />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/contactus" element={<Navigate to="/contact" />} />

@@ -1,71 +1,101 @@
-import React, { useState, useEffect } from "react";
-import { useLocation } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { useParams, useNavigate } from "react-router-dom";
 import "../styles/detail.css";
 
-const Detail = () => {
-  const location = useLocation();
-  const { recipeId } = location.state || {};
-
+const Detail = ({ recipes }) => {
+  const { id } = useParams();
   const [recipe, setRecipe] = useState(null);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
-    if (recipeId) {
-      const fetchRecipe = async () => {
-        try {
-          const response = await fetch(`http://localhost:5000/recipes/${recipeId}`);
-          if (!response.ok) throw new Error("Failed to fetch recipe details");
+    const fetchRecipe = async () => {
+      try {
+        const foundRecipe = recipes.find((r) => r._id === id);
+        if (foundRecipe) {
+          setRecipe(foundRecipe);
+        } else {
+          const response = await fetch(`http://localhost:5000/recipe/${id}`);
+          if (!response.ok) throw new Error("Recipe not found");
           const data = await response.json();
           setRecipe(data);
-          setLoading(false);
-        } catch (error) {
-          setError(error.message);
-          setLoading(false);
         }
-      };
-      fetchRecipe();
-    } else {
-      setError("Recipe ID is missing");
-      setLoading(false);
+      } catch (error) {
+        console.error("Error fetching recipe:", error);
+        navigate("/404");
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchRecipe();
+  }, [id, recipes, navigate]);
+
+  useEffect(() => {
+    const storedLikeStatus = localStorage.getItem(`like-${id}`);
+    if (storedLikeStatus) {
+      setRecipe((prevRecipe) => ({
+        ...prevRecipe,
+        like: JSON.parse(storedLikeStatus),
+      }));
     }
-  }, [recipeId]);
+  }, [id]);
 
-  if (loading) return <div className="loading">Loading recipe details...</div>;
-  if (error) return <div className="error">Error: {error}</div>;
-  if (!recipe) return <div className="error">Recipe not found</div>;
+  const toggleLike = () => {
+    setRecipe((prevRecipe) => {
+      const newLikeStatus = !prevRecipe.like;
+      localStorage.setItem(`like-${id}`, JSON.stringify(newLikeStatus));
+      return {
+        ...prevRecipe,
+        like: newLikeStatus,
+      };
+    });
+  };
 
-  const { title, price, rating, image, ingredients, instructions, like } = recipe;
+  if (loading) return <p>Loading recipe details...</p>;
+  if (!recipe) return <p>Recipe not found.</p>;
+
+  const {
+    title = "Unknown Recipe",
+    image = "",
+    price = 0,
+    rating = 0,
+    ingredients = [],
+    instructions = [],
+  } = recipe;
 
   return (
-    <div className="recipe-detail">
-      <h1 className="recipe-title">{title}</h1>
-      <div className="recipe-header">
-        <img className="recipe-image" src={image} alt={title} />
-        <div className="recipe-info">
-          <p><strong>Price:</strong> ${price}</p>
-          <p><strong>Rating:</strong> {rating}</p>
-          <p><strong>Likes:</strong> {like ? "Yes" : "No"}</p>
-        </div>
-      </div>
-      <div className="ingredients">
-        <h3>Ingredients</h3>
-        <ul>
-          {ingredients.map((ingredient, index) => (
-            <li key={index}>
-              {ingredient.name} - {ingredient.amount || ""} {ingredient.unit || ""}
-            </li>
-          ))}
-        </ul>
-      </div>
-      <div className="instructions">
-        <h3>Instructions</h3>
-        <ol>
-          {instructions.map((step, index) => (
-            <li key={index}>{step}</li>
-          ))}
-        </ol>
-      </div>
+    <div className="detail-container">
+      <h1>{title}</h1>
+      <img src={image} alt={title} className="detail-image" />
+      <p>Price: ${price.toFixed(2)}</p>
+      <p>Rating: {rating} / 5</p>
+
+      <button className="like-button" onClick={toggleLike}>
+        {recipe.like ? "❤️ Liked" : "🤍 Not Liked"}
+      </button>
+
+      <h2>Ingredients:</h2>
+      <ul>
+        {Array.isArray(ingredients) && ingredients.length > 0 ? (
+          ingredients.map((ingredient, index) => (
+            <li key={index}>{ingredient}</li>
+          ))
+        ) : (
+          <p>No ingredients available.</p>
+        )}
+      </ul>
+
+      <h2>Instructions:</h2>
+      <ol>
+        {Array.isArray(instructions) && instructions.length > 0 ? (
+          instructions.map((instruction, index) => (
+            <li key={index}>{instruction}</li>
+          ))
+        ) : (
+          <p>No instructions available.</p>
+        )}
+      </ol>
     </div>
   );
 };
